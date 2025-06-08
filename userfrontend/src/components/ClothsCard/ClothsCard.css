@@ -1,0 +1,79 @@
+.cloths-item{
+    width: 100%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #00000015;
+    transition: 0.3s;
+    animation: fadeIn 1s;
+}
+
+.cloths-item-image{
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    height: 350px;
+    object-fit: cover;
+}
+
+.cloths-item-info{
+    padding: 20px;
+}
+
+.cloths-item-price-rating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cloths-item-price-rating p{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.cloths-item-price-rating img{
+    width: 70px;
+}
+
+.cloths-item-desc{
+    color:#676767;
+    font-size: 1.4rem;
+}
+.cloths-item-price{
+    color: var(--theme-color);
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-block: 10px;
+}
+.cloths-item-name{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.cloths-item-image-container{
+    position: relative; 
+}
+
+.cloths-item-image-container .add{
+    position: absolute;
+    width: 35px;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.cloths-item-counter{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+.cloths-item-counter img{
+    width: 30px;
+}

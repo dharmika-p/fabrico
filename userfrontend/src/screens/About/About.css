@@ -1,0 +1,72 @@
+
+.about-page {
+    max-width: 800px;
+    margin: 70px auto;
+    padding: 50px 60px;
+    background: #f9f7f1;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4a4a4a;
+    line-height: 2;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-page:hover {
+    background: #f0ebe4;
+  }
+  
+  .about-page h1 {
+    font-size: 4.8rem; /* way bigger */
+    color: var(--theme-color);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .about-page p {
+    font-size: 1.8rem; /* larger */
+    margin-bottom: 30px;
+  }
+  
+  .about-page strong {
+    color: var(--theme-color);
+  }
+  
+  .about-page p:last-child {
+    font-style: italic;
+    text-align: center;
+    margin-top: 50px;
+    color: #7a7a7a;
+  }
+  
+  @media (max-width: 768px) {
+    .about-page {
+      padding: 30px 20px;
+      margin: 50px 20px;
+    }
+  
+    .about-page h1 {
+      font-size: 3rem;
+    }
+  
+    .about-page p {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-page {
+      padding: 25px 15px;
+      margin: 30px 10px;
+    }
+  
+    .about-page h1 {
+      font-size: 2.4rem;
+    }
+  
+    .about-page p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+  }
+  

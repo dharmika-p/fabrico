@@ -57,6 +57,35 @@
   margin-top: 30px; 
 }
 
+.footer-center ul li a {
+    color: #d9d9d9; /* normal color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+  
+.footer-center ul li a:hover {
+    color: #3f5fc0; /* accent color on hover */
+    cursor: pointer;
+    text-decoration: underline; /* optional */
+}
+  
+
+.footer-right ul li a {
+    color: #d9d9d9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+  
+.footer-right ul li a:hover {
+    color: #3f5fc0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+  
+  
+
 @media (max-width:750px){
     .footer-content{
         display: flex;

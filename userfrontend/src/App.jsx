@@ -6,6 +6,11 @@ import Home from './screens/Home/Home';
 import Footer from './components/Footer/Footer'
 import PlaceOrder from './screens/PlaceOrder/PlaceOrder';
 import LoginPopup from './components/LoginPopup/LoginPopup';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Reviews from './screens/Reviews/Reviews'
+import About from './screens/About/About';
+
 
 const App = () => {
    const [showLogin,setShowLogin] = React.useState(false);
@@ -18,9 +23,12 @@ const App = () => {
           <Route path='/' element={<Home/>}></Route>
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='/order' element={<PlaceOrder/>}></Route>
+          <Route path='/about' element={<About />} />
+          <Route path='/reviews' element={<Reviews />} />
         </Routes>
      </div>
      <Footer/>
+     <ToastContainer position="top-center" autoClose={2000} />
     </>
   )
 }

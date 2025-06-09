@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './PromoPopup.css';
+import './promopopup.css';
 
 const PromoPopup = () => {
   const [showPopup, setShowPopup] = useState(false);

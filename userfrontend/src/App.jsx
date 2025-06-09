@@ -6,6 +6,7 @@ import Home from './screens/Home/Home';
 import Footer from './components/Footer/Footer'
 import PlaceOrder from './screens/PlaceOrder/PlaceOrder';
 import LoginPopup from './components/LoginPopup/LoginPopup';
+import PromoPopup from './components/promopopup/promopopup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Reviews from './screens/Reviews/Reviews'
@@ -29,6 +30,7 @@ const App = () => {
      </div>
      <Footer/>
      <ToastContainer position="top-center" autoClose={2000} />
+     <PromoPopup />
     </>
   )
 }

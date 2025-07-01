@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config()
 const app = express()
 const connectDB = require('./config/dbConn')
 
@@ -8,7 +9,7 @@ const port = process.env.PORT || 4000;
 app.use(express.json())
 const cors = require('cors')
 app.use(cors())
-require('dotenv').config()
+
 app.use("/image",express.static('uploads'))
 connectDB()
 

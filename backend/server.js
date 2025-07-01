@@ -1,33 +1,38 @@
 const express = require('express')
-require('dotenv').config()
-const app = express()
-const connectDB = require('./config/dbConn')
-
-const port = process.env.PORT || 4000;
-
-//middlewares
-app.use(express.json())
 const cors = require('cors')
-app.use(cors())
+const connectDB = require('./config/dbConn')
+require('dotenv').config()
 
-app.use("/image",express.static('uploads'))
+const app = express()
+const port = process.env.PORT || 4000
+
+// CORS Configuration
+const allowedOrigins = ['https://fabricoadmin.onrender.com']
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true // if using cookies or auth headers (optional)
+}))
+
+// Middleware
+app.use(express.json())
+app.use("/image", express.static('uploads'))
+
+// Connect to DB
 connectDB()
 
+// Routes
+app.use('/api/cloth', require('./routes/clothRouter'))
+app.use('/api/user', require('./routes/userRouter'))
+app.use('/api/cart', require('./routes/cartRouter'))
+app.use('/api/order', require('./routes/orderRouter'))
 
-//routes
-//api endpoints
-app.use('/api/cloth',require('./routes/clothRouter'))
-app.use('/api/user',require('./routes/userRouter'))
-app.use('/api/cart',require('./routes/cartRouter'))
-app.use('/api/order',require('./routes/orderRouter'))
-
-
-
-
-app.get("/", (req,res)=>{
-   res.send("API Working")
+// Test Route
+app.get("/", (req, res) => {
+    res.send("API Working")
 })
 
-app.listen(port,()=>{
-   console.log(`Server started on http://localhost:${port}`)
+// Start Server
+app.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`)
 })

@@ -1,14 +1,40 @@
 // src/context/StoreContext.jsx
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { cloths_list } from '../assets/assets';
+import axios from 'axios'
+
 
 export const StoreContext = createContext();
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+  const [cloths_list,setClothList] = useState([])
+  const url = 'http://localhost:4000'
+  const [token,setToken] = useState("")
 
-  const addToCart = (itemId) => {
+  const fetchClothList = async()=>{
+    const response = await axios.get(url+'/api/cloth/list')
+    setClothList(response.data.data)
+  }
+
+  useEffect(()=>{
+    async function loadData(){
+      await fetchClothList()
+      if(localStorage.getItem("token")){
+        setToken(localStorage.getItem("token"))
+        await loadCartData(localStorage.getItem("token"))
+      }
+    }
+    loadData()
+  },[])
+
+  const loadCartData = async(token)=>{
+    const response = await axios.get(url+"/api/cart/get",{headers:{token}})
+    setCartItems(response.data.cartData)
+  }
+
+
+  const addToCart = async(itemId) => {
     setCartItems(prev => {
       const updatedCart = {
         ...prev,
@@ -18,9 +44,16 @@ const StoreContextProvider = (props) => {
     });
     const itemName = cloths_list.find(cloth => cloth._id === itemId)?.name || "Item";
     toast.success(`${itemName} added to cart`);
+    if(token){
+      try {
+        await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+      } catch (error) {
+        console.log(error)
+      }
+    }
   };
   
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async(itemId) => {
     setCartItems(prev => {
       const updatedCount = prev[itemId] - 1;
       const newCart = { ...prev };
@@ -39,6 +72,13 @@ const StoreContextProvider = (props) => {
   
       return newCart;
     });
+    if(token){
+      try {
+        await axios.delete(`${url}/api/cart/remove?itemID=${itemId}`,{headers:{token}})
+      } catch (error) {
+        console.log(error)
+      }
+    }
   };
 
   const getTotalCartAmount=()=>{
@@ -57,7 +97,10 @@ const StoreContextProvider = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
-    getTotalCartAmount
+    getTotalCartAmount,
+    url,
+    token,
+    setToken
   }
 
   return (

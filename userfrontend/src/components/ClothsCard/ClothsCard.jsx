@@ -6,13 +6,13 @@ import {assets} from '../../assets/assets'
 const ClothsCard = ({id,name,price,description,image}) => {
 
   const [itemCount,setItemCont] = React.useState(0)
-  const {cartItems,setCartItems,addToCart,removeFromCart} = React.useContext(StoreContext)
+  const {cartItems,setCartItems,addToCart,removeFromCart,url} = React.useContext(StoreContext)
 
 
   return (
     <div className='cloths-item'>
         <div className="cloths-item-image-container">
-            <img src={image} alt="" className="cloths-item-image" />
+            <img src={`${url}/image/${image}`} alt="" className="cloths-item-image" />
             {
               !cartItems[id] ? <img onClick={()=>addToCart(id)} src={assets.add_icon_white} className="add" alt="" />
                            : <div className="cloths-item-counter">

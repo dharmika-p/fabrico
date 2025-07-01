@@ -3,10 +3,12 @@ import {Routes,Route} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Cart from './screens/Cart/Cart';
 import Home from './screens/Home/Home';
+import MyOrders from './screens/MyOrders/MyOrders'
 import Footer from './components/Footer/Footer'
 import PlaceOrder from './screens/PlaceOrder/PlaceOrder';
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import PromoPopup from './components/promopopup/promopopup';
+import Verify from './screens/Verify/Verify'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Reviews from './screens/Reviews/Reviews'
@@ -26,6 +28,8 @@ const App = () => {
           <Route path='/order' element={<PlaceOrder/>}></Route>
           <Route path='/about' element={<About />} />
           <Route path='/reviews' element={<Reviews />} />
+          <Route path='/verify' element={<Verify/>}></Route>
+          <Route path='/myorders' element={<MyOrders/>}></Route>
         </Routes>
      </div>
      <Footer/>

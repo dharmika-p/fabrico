@@ -1,32 +1,33 @@
 .screen {
-    width: 70%;
-    margin-left: max(5vw, 25px);
-    margin-block: 50px;
-    color: #6d6d6d;
-    font-size: 1.4rem;
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-block: 50px;
+  color: #6d6d6d;
+  font-size: 1.4rem;
 }
-  
+
 .container {
-    place-self: center;
-    width: max(40%, 300px);
-    border: 1px solid var(--theme-color);
-    border-radius: 2%;
-    padding: 5%;
+  place-self: center;
+  width: max(40%, 300px);
+  border: 1px solid var(--theme-color);
+  border-radius: 2%;
+  padding: 5%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
-  
+
 .screen form {
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-  
+
 .add-img-upload img {
-    width: 120px;
-    cursor: pointer;
+  width: 120px;
+  cursor: pointer;
 }
-  
-.add-category {
-    min-width: 125px;
-}
-  
+
+
 .add-products-name input,
 .add-product-description textarea,
 .add-price input,
@@ -36,11 +37,13 @@
   border-radius: 5px;
   font-size: 1.2rem;
   color: #333;
+  width: 100%;
 }
 
 .add-product-description textarea {
   resize: none;
 }
+
 
 .add-btn {
   max-width: 120px;
@@ -52,13 +55,74 @@
   border-radius: 5px;
 }
 
+
 .add-category-price {
   display: flex;
   gap: 30px;
+  justify-content: space-between;
 }
 
-.add-price input{
-    width: 100%;
+.add-category {
+  min-width: 125px;
+  flex: 1;
 }
 
-  
+.add-price {
+  flex: 1;
+}
+
+
+@media (max-width: 768px) {
+  .screen {
+      width: 90%;
+      margin: 30px auto;
+      font-size: 1.2rem;
+  }
+
+  .container {
+      width: 90%;
+      padding: 6%;
+  }
+
+  .add-img-upload img {
+      width: 100px;
+  }
+
+  .add-category-price {
+      gap: 20px;
+  }
+
+  .add-btn {
+      max-width: 100%;
+      padding: 10px 15px;
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .screen {
+      width: 95%;
+      margin: 20px auto;
+      font-size: 1rem;
+  }
+
+  .container {
+      width: 100%;
+      padding: 8%;
+      border-radius: 8px;
+  }
+
+  .add-category-price {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .add-img-upload img {
+      width: 80px;
+  }
+
+  .add-btn {
+      font-size: 0.95rem;
+      padding: 10px;
+  }
+}

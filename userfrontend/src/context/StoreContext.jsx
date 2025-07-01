@@ -9,7 +9,7 @@ export const StoreContext = createContext();
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [cloths_list,setClothList] = useState([])
-  const url = 'http://localhost:4000'
+  const url = 'https://fabricobackend.onrender.com'
   const [token,setToken] = useState("")
 
   const fetchClothList = async()=>{

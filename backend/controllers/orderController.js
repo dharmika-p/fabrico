@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 
 const placeOrder = async (req,res)=>{
-   const frontend_url = 'http://localhost:5173'
+   const frontend_url = 'https://fabrico.onrender.com'
    
    try {
        const newOrder = await orderModel.create(

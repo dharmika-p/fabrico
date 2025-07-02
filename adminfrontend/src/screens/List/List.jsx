@@ -30,7 +30,7 @@ const List = ({url}) => {
 
   return (
     <div className='list screen flex-col'>
-        <p>All Foods List</p>
+        <p>All Collections List</p>
         <div className="list-table">
             <div className="list-table-format title">
                 <p><b>Image</b></p>

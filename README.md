@@ -12,3 +12,5 @@ Admin Side
 - Add, edit, and delete products
 - Manage orders and users
 - Inventory and order management
+
+Website link: https://fabrico.onrender.com/
